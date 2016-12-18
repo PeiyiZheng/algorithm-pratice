@@ -39,3 +39,15 @@ void test_merge_sort_1() {
         cout << "merge sort fails! (top-down version)" << endl;
     }
 }
+
+void test_merge_sort_2() {
+    int num = rand() % 54321;
+    vector<int> temp = generate_test_data(num);
+    merge_sort_bottom_up(temp);
+    if (check_sorted_result(temp) == true) {
+        cout << "merge sort successes! (bottom-up version)" << endl;
+    }
+    else {
+        cout << "merge sort fails! (bottom-up version)" << endl;
+    }
+}

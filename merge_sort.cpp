@@ -3,7 +3,7 @@
 //
 #include "basic.h"
 
-void merge_top_down(vector<int>& input, int left, int mid, int right) {
+void merge(vector<int>& input, int left, int mid, int right) {
     vector<int> temp(right - left + 1);
 
     for (int i = left, j = 0; i <= right; ++i, ++j) {
@@ -34,5 +34,13 @@ void merge_sort_top_down(vector<int>& input, int left, int right) {
     int mid = left + ((right - left) >> 1);
     merge_sort_top_down(input, left, mid);
     merge_sort_top_down(input, mid + 1, right);
-    merge_top_down(input, left, mid, right);
+    merge(input, left, mid, right);
+}
+
+void merge_sort_bottom_up(vector<int>& input) {
+    for (int i = 1; i < input.size(); i <<= 1) {
+        for (int j = 0; j < input.size() - i; j += (i << 1)) {
+            merge(input, j, j + i - 1, min((int)input.size() - 1, j + (i << 1) - 1));
+        }
+    }
 }
