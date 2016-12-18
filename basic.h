@@ -19,10 +19,14 @@ vector<int> generate_test_data(int);
 template <typename T>
 bool check_sorted_result(vector<T>);
 
-void merge(vector<int>&, int, int, int);
 void merge_sort_top_down(vector<int>&, int, int);
 void merge_sort_bottom_up(vector<int>&);
+
+void quick_sort_2_ways(vector<int>&, int, int);
+void quick_sort_3_ways(vector<int>&, int, int);
 
 // test cases
 void test_merge_sort_1();
 void test_merge_sort_2();
+void test_quick_sort_1();
+void test_quick_sort_2();

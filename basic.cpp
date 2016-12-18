@@ -51,3 +51,27 @@ void test_merge_sort_2() {
         cout << "merge sort fails! (bottom-up version)" << endl;
     }
 }
+
+void test_quick_sort_1() {
+    int num = rand() % 54321;
+    vector<int> temp = generate_test_data(num);
+    quick_sort_2_ways(temp, 0, temp.size() - 1);
+    if (check_sorted_result(temp) == true) {
+        cout << "quick sort successes! (2-ways version)" << endl;
+    }
+    else {
+        cout << "quick sort fails! (2-ways version)" << endl;
+    }
+}
+
+void test_quick_sort_2() {
+    int num = rand() % 54321;
+    vector<int> temp = generate_test_data(num);
+    quick_sort_3_ways(temp, 0, temp.size() - 1);
+    if (check_sorted_result(temp) == true) {
+        cout << "quick sort successes! (3-ways version)" << endl;
+    }
+    else {
+        cout << "quick sort fails! (3-ways version)" << endl;
+    }
+}
