@@ -25,8 +25,23 @@ void merge_sort_bottom_up(vector<int>&);
 void quick_sort_2_ways(vector<int>&, int, int);
 void quick_sort_3_ways(vector<int>&, int, int);
 
+class Heap {
+public:
+    Heap() {}
+    Heap(vector<int>&);
+    void sink(int);
+    void swim(int);
+    void insert(int);
+    int remove();
+    vector<int> heap_sort();
+private:
+    int n;
+    vector<int> data;
+};
+
 // test cases
 void test_merge_sort_1();
 void test_merge_sort_2();
 void test_quick_sort_1();
 void test_quick_sort_2();
+void test_heap_sort();

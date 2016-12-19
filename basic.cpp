@@ -75,3 +75,17 @@ void test_quick_sort_2() {
         cout << "quick sort fails! (3-ways version)" << endl;
     }
 }
+
+void test_heap_sort() {
+    int num = rand() % 54321;
+    vector<int> temp = generate_test_data(num);
+
+    Heap hp(temp);
+    temp = hp.heap_sort();
+    if (check_sorted_result(temp) == true) {
+        cout << "heap sort successes!" << endl;
+    }
+    else {
+        cout << "heap sort fails!" << endl;
+    }
+}
