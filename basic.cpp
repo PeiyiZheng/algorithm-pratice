@@ -6,7 +6,6 @@
 
 vector<int> generate_test_data(int num) {
     vector<int> temp(num);
-    srand((unsigned)time(0));
 
     for (int i = 0; i < num; ++i) {
         temp[i] = rand();
@@ -88,4 +87,35 @@ void test_heap_sort() {
     else {
         cout << "heap sort fails!" << endl;
     }
+}
+
+void test_BST() {
+    int num = rand() % 4321;
+    vector<int> key_list = generate_test_data(num);
+    vector<int> val_list = generate_test_data(num);
+
+    BST* root = new BST(key_list[0], val_list[0]);
+    for (int i = 1; i < num; ++i) {
+        root->put(key_list[i], val_list[i]);
+    }
+
+    cout << "Binary Search Tree Height: " << root->getHeight() << endl;
+    bool flag = true;
+    for (int i = 0; i < 25; ++i) {
+        int idx = rand() % num;
+        int res = root->get(key_list[idx]);
+
+        cout << "key: " << key_list[idx] << " expected value: " << val_list[idx] << " return value: " << res << endl;
+        if (res != val_list[idx]) {
+            cout << "BST test fails! (wrong value)" << endl;
+            return;
+        }
+    }
+
+    if (root->get(-1) != -1) {
+        cout << "BST test fails! (wrong key)" << endl;
+        return;
+    }
+
+    cout << "BST test successes!" << endl;
 }

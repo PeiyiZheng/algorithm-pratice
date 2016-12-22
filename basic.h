@@ -39,9 +39,23 @@ private:
     vector<int> data;
 };
 
+class BST {
+public:
+    BST();
+    BST(int, int);
+    void put(int, int);
+    int get(int);
+    int getHeight();
+private:
+    int key, val;
+    int height;
+    BST *left, *right;
+};
+
 // test cases
 void test_merge_sort_1();
 void test_merge_sort_2();
 void test_quick_sort_1();
 void test_quick_sort_2();
 void test_heap_sort();
+void test_BST();
