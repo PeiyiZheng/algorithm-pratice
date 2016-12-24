@@ -119,3 +119,34 @@ void test_BST() {
 
     cout << "BST test successes!" << endl;
 }
+
+void test_AVL() {
+    int num = rand() % 4321;
+    vector<int> key_list = generate_test_data(num);
+    vector<int> val_list = generate_test_data(num);
+
+    AVL_Tree* root = new AVL_Tree(key_list[0], val_list[0]);
+    for (int i = 0; i < num; ++i) {
+        avlInsert(key_list[i], val_list[i], root);
+    }
+
+    cout << "AVL Tree Height: " << root->getHeight() << endl;
+    bool flag = true;
+    for (int i = 0; i < 25; ++i) {
+        int idx = rand() % num;
+        int res = avlQuery(key_list[idx], root);
+
+        cout << "key: " << key_list[idx] << " expected value: " << val_list[idx] << " return value: " << res << endl;
+        if (res != val_list[idx]) {
+            cout << "AVL test fails! (wrong value)" << endl;
+            return;
+        }
+    }
+
+    if (avlQuery(-1, root) != -1) {
+        cout << "AVL test fails! (wrong key)" << endl;
+        return;
+    }
+
+    cout << "AVL test successes!" << endl;
+}

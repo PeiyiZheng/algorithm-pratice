@@ -7,5 +7,6 @@ int main() {
     //test_quick_sort_2();
     //test_heap_sort();
     test_BST();
+    test_AVL();
     return 0;
 }

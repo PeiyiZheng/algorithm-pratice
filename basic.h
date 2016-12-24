@@ -52,6 +52,24 @@ private:
     BST *left, *right;
 };
 
+class AVL_Tree {
+public:
+    AVL_Tree() {};
+    AVL_Tree(int, int);
+    int getHeight();
+    int key, val, height;
+    AVL_Tree *lchild, *rchild;
+};
+
+void rightRotate(AVL_Tree*& node);
+void leftRotate(AVL_Tree*& node);
+void leftRightRotate(AVL_Tree*& node);
+void rightLeftRotate(AVL_Tree*& node);
+void avlInsert(int _key, int _val, AVL_Tree*& node);
+int avlQuery(int _key, AVL_Tree* node);
+void test_AVL();
+
+
 // test cases
 void test_merge_sort_1();
 void test_merge_sort_2();
